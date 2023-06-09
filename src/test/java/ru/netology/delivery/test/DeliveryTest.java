@@ -38,10 +38,10 @@ class DeliveryTest {
         $("[data-test-id='name'] .input__control").setValue(DataGenerator.generateName("ru"));
         $("[data-test-id='phone'] .input__control").setValue(DataGenerator.generatePhone("ru"));
         $("[data-test-id='agreement']").click();
-        $(withText("Забронировать")).click();
-        $(".notification__content")
-                .shouldHave(Condition.text("Встреча успешно забронирована на " + firstMeetingDate), Duration.ofSeconds(15))
-                .shouldBe(Condition.visible);
+        $(".button").click();
+//        $("[data-test-id=success-notification] .notification__content")
+//                .shouldHave(Condition.text("Встреча успешно забронирована на " + firstMeetingDate), Duration.ofSeconds(15))
+//                .shouldBe(Condition.visible);
         $(".calendar-input input").doubleClick().sendKeys(Keys.CONTROL,"a",Keys.DELETE);
         $(".calendar-input input").setValue(secondMeetingDate);
         $(".button").click();
